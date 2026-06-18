@@ -1,0 +1,95 @@
+# =============================================================
+#  Sveltia CMS 配置文件
+#  作用：定义“可视化后台里能编辑哪些内容、有哪些表单字段”。
+#  注意：CMS 保存时只会写它认识的字段，所以下面的字段必须和
+#       模板里现有 .md 文件的 frontmatter 完全对应，否则会被抹掉。
+# =============================================================
+
+# ---------- 后端：内容存到哪个 GitHub 仓库 ----------
+backend:
+  name: github
+  repo: YOUR-USERNAME/YOUR-REPO   # ★必改：换成你的「用户名/仓库名」，转移到实验室账号后也改这里
+  branch: main                    # 编辑保存到 main 分支；GitHub Actions 会自动构建并发布到 gh-pages
+  # base_url: https://YOUR-AUTH-WORKER.workers.dev   # ★认证中转地址（见《CMS-使用与运维.md》第3节）
+
+# ---------- 图片上传位置 ----------
+# 模板里图片都引用为 images/xxx.jpg，所以这里两个都用 images 保持一致
+media_folder: images        # 图片实际存到仓库的 images/ 文件夹
+public_folder: images       # 写进文件里的引用路径前缀（= 模板现有写法）
+
+# 后台界面语言
+locale: zh
+
+# =============================================================
+#  栏目（collections）
+#  目前只开放“成员”和“新闻”两类纯内容——它们碰不到任何布局。
+#  页面正文、背景图、发表、实验室名属于低频/含布局项，
+#  由管理员按《CMS-使用与运维.md》操作，故意不放进后台以防误改布局。
+# =============================================================
+collections:
+
+  # ========== 1) 成员 Members → _members/*.md ==========
+  - name: members
+    label: 成员
+    label_singular: 成员
+    folder: _members
+    create: true                  # 允许新建
+    slug: '{{fields.name | lower | replace(" ", "-")}}'   # 文件名按姓名生成，如 jane-smith.md
+    summary: '{{fields.name}} — {{fields.role}}'           # 列表里每条的显示文字
+    sort:
+      - { field: name, direction: ascending }
+    fields:
+      - { name: name, label: 姓名, widget: string }
+      - { name: image, label: 照片, widget: image, required: false, default: images/photo.jpg }
+      - name: role
+        label: 角色
+        widget: select
+        hint: 团队页按角色分组显示；如需新角色可让管理员在本配置里加选项
+        options:
+          - { label: 'PI（实验室负责人）', value: principal-investigator }
+          - { label: '博士后 Postdoc',     value: postdoc }
+          - { label: '博士生 PhD',          value: phd }
+          - { label: '硕士生 Masters',      value: masters }
+          - { label: '本科生 Undergrad',    value: undergrad }
+          - { label: '研究助理 / 程序员',   value: programmer }
+          - { label: '校友 Alumni',         value: alumni }
+      - { name: affiliation, label: 单位, widget: string, required: false }
+      # aliases 保留：老成员文件里有，必须配上否则保存时会被删
+      - { name: aliases, label: '姓名别名（用于自动匹配论文作者，可留空）', widget: list, required: false }
+      - name: links
+        label: 链接
+        widget: object
+        required: false
+        fields:
+          - { name: email,          label: 邮箱,            widget: string, required: false }
+          - { name: home-page,      label: 个人主页,        widget: string, required: false }
+          - { name: orcid,          label: ORCID,           widget: string, required: false }
+          - { name: google-scholar, label: 'Google Scholar', widget: string, required: false }
+          - { name: github,         label: GitHub,          widget: string, required: false }
+          - { name: twitter,        label: Twitter / X,     widget: string, required: false }
+      - { name: body, label: 个人简介, widget: markdown, required: false }
+
+  # ========== 2) 新闻 News → _posts/*.md ==========
+  - name: news
+    label: 新闻
+    label_singular: 新闻
+    folder: _posts
+    create: true
+    # Jekyll 要求文件名形如 2026-06-18-标题.md，下面据日期+标题自动生成
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    summary: '{{fields.date}} · {{fields.title}}'
+    sort:
+      - { field: date, direction: descending }
+    fields:
+      - { name: title, label: 标题, widget: string }
+      - { name: date,  label: 日期, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
+      - name: author
+        label: 作者
+        widget: relation            # 下拉选已有成员，不用手打
+        collection: members
+        search_fields: [name]
+        value_field: '{{slug}}'     # 存成员文件名（如 jane-smith）
+        display_fields: [name]
+        required: false
+      - { name: tags, label: 标签, widget: list, required: false }
+      - { name: body, label: 正文, widget: markdown }
