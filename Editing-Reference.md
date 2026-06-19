@@ -2,7 +2,7 @@
 
 What each section in the visual admin (`/admin`) lets you edit. Open `/admin`, pick a section in the left sidebar, change the fields, click **Save** -> the live site updates in ~1-3 minutes (hard-refresh with Ctrl/Cmd+Shift+R if you don't see it).
 
-The sidebar has these sections: **Pages** (click it, then pick one of the 6 pages on the right), **Publications**, **Site settings**, **Members**, **Projects**, and **Blog posts**.
+The sidebar has these sections: **Pages** (click it, then pick one of the 6 pages on the right), **Publications**, **Auto-import (ORCID)**, **Site settings**, **Members**, **Projects**, and **Blog posts**.
 
 ---
 
@@ -28,7 +28,7 @@ The home page.
 - **Talks & videos** (shown right under Highlighted) - a list of YouTube links (paste a normal watch?v=... or youtu.be/... URL + a title). They embed side by side as players. Empty list hides the section.
   - **How many videos to show** (`videos_max`, default 6); if you have more, a **More videos** button appears linking to a full `/videos/` page.
   - **Video size** - Small / Medium / Large (or type any CSS width in the data file for a custom size).
-- **The full publication list** is now editable in the admin too - it's the **Publications** section in the sidebar (see below). Add/remove papers there; this is what fills both the "Highlighted" cards (when you reference a paper's title/DOI above) and the full list under "All".
+- **The full publication list** shows only your **curated** papers - the ones you add in the **Publications** section (see below). It does **not** show auto-imported ORCID papers (those go on each member's own page instead), so the Research page stays clean even with a big lab.
 
 > Not in the admin (page layout): the "Research" heading + icon and the nav tooltip live in `research/index.md`.
 
@@ -68,6 +68,7 @@ The home page.
 - **Whole-page background image** - one image behind the entire site; content sits on translucent panels so text stays readable. **Leave blank for the plain look.** (Different setting from the Top banner - they can be the same or different images.)
 - **How much the background shows through** - Subtle / Medium / Strong.
 - **Social / contact links** - Email, ORCID, Google Scholar, GitHub, Twitter/X, YouTube, LinkedIn (footer icons). Leave one blank to hide that icon.
+- **Auto-imported papers per member page** (`member_publications_max`, default 5) - how many of each person's ORCID papers to list on their page before a "See all on ORCID" link.
 
 > The background image and the lab logo are not in the admin: replace `images/background.jpg` (background) or add `images/logo.svg` / `logo.png` (logo) in the repo.
 
@@ -83,7 +84,14 @@ One entry per person. Click **+ Member** to add, open an entry to edit or delete
 - **Known links** - email, home page, ORCID, Scholar, GitHub, Twitter, LinkedIn. An icon shows **only if you fill that field** (blank = hidden). On the member's page each link shows its icon followed by the actual address/handle, left-aligned.
 - **Other links (custom)** - a list of label + URL pairs for anything not in the known list (e.g. CIW, a database profile). Shows a globe icon + your label.
 - **Bio**
+- **Recent publications (automatic)** - if a member has an **ORCID** filled in their Known links **and** that same ORCID is added under **Auto-import (ORCID)** (below), their newest papers appear automatically at the bottom of their page (capped by the Site setting, rest link to ORCID). Nothing to type per paper.
 - The Team page automatically groups people by role and **wraps to multiple rows** - 4 people or 40, no layout editing needed.
+
+### Auto-import (ORCID)
+The **Auto-import (ORCID)** section -> **ORCID profiles to import** -> the list. Click **+ ORCID iD** to add a profile.
+- Paste an **ORCID iD** (e.g. `0000-0002-1825-0097`). On the next rebuild, **every paper on that profile is fetched and cited automatically**, and shown on the matching member's page (match = the same ORCID in that person's **Known links**).
+- These do **not** appear on the Research page (that stays your curated list). Empty list = no auto-import.
+- This is how you keep publications current without typing them: add a member + their ORCID once, and new papers show up by themselves.
 
 ### Publications
 The **Publications** section in the sidebar -> open **Publication list** -> the **Publications** list. Click **+ Publication** to add, open one to edit, or use the trash icon to remove.
