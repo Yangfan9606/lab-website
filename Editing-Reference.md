@@ -10,6 +10,7 @@ The sidebar has **4 sections**: **Pages** (click it, then pick one of the 6 page
 
 ### 1. Main page
 The home page.
+- **Home banner image** - optional; overrides the site-wide Top banner just for the home hero. Blank = use the site-wide one (Site settings).
 - **Big title** - the large heading at the top
 - **Intro paragraph** - the sentence under the title
 - **Panel 1 / 2 / 3** (the three "Highlights" cards), each has:
@@ -60,7 +61,9 @@ The home page.
 - **Lab name** - shown in the header and footer
 - **Subtitle** - small text under the name
 - **Description** - used by search engines and link previews
-- **Whole-page background image** - one image behind the entire site; content sits on translucent panels so text stays readable. **Leave blank for the plain look.**
+- **Top banner image** - the large image at the top of every page (the big hero on the home page). This is separate from the whole-page background below.
+- **Footer background image**.
+- **Whole-page background image** - one image behind the entire site; content sits on translucent panels so text stays readable. **Leave blank for the plain look.** (Different setting from the Top banner - they can be the same or different images.)
 - **How much the background shows through** - Subtle / Medium / Strong.
 - **Social / contact links** - Email, ORCID, Google Scholar, GitHub, Twitter/X, YouTube, LinkedIn (footer icons). Leave one blank to hide that icon.
 
