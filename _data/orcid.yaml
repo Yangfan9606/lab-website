@@ -1,1 +1,12 @@
-- orcid: 0000-0002-4655-3773
+# =============================================================
+#  Auto-import publications from ORCID profiles.
+#  Each "id" is an ORCID iD; EVERY paper on that profile is pulled in
+#  and cited automatically (great for keeping the list up to date).
+#
+#  Empty list = no auto-import; only the manual "Publications" list
+#  (admin -> Publications) is used.
+#
+#  To auto-import a lab member's papers, add:
+#    - id: 0000-0002-1825-0097
+# =============================================================
+list: []
