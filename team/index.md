@@ -11,8 +11,23 @@ nav:
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filter="role == 'pi'" %}
-{% include list.html data="members" component="portrait" filter="role != 'pi'" %}
+{% comment %}
+  Team is grouped into sections by role, in this fixed order (PI/Leader first).
+  To add or reorder a role: edit this list AND _data/types.yaml (icon + label)
+  AND the Role dropdown in admin/config.yml. Empty groups are skipped.
+{% endcomment %}
+{% assign role_order = "principal-investigator,co-pi,research-scientist,postdoc,phd,masters,undergrad,programmer,lab-manager,visiting,rotation,alumni" | split: "," %}
+
+{% for role in role_order %}
+  {% assign group = site.members | where: "role", role | sort: "name" %}
+  {% if group.size > 0 %}
+
+## {{ site.data.types[role].description | default: role }}
+
+{% for member in group %}{% include portrait.html lookup=member.slug %}{% endfor %}
+
+  {% endif %}
+{% endfor %}
 
 {% include section.html background="images/background.jpg" dark=true %}
 
