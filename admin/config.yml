@@ -202,6 +202,29 @@ collections:
               - { name: remove, label: 'Hide this entry (keeps it here but removes it from the site)', widget: boolean, required: false, default: false }
 
   # ====================================================================
+  #  AUTO-IMPORT (ORCID) -> _data/orcid.yaml (wrapped under "list:")
+  #  Each id is an ORCID iD; every paper on that profile is fetched and
+  #  cited automatically. These appear UNDER each member's page (matched
+  #  by their Known links -> ORCID), not on the Research page.
+  # ====================================================================
+  - name: auto-import
+    label: 'Auto-import (ORCID)'
+    files:
+      - name: orcid
+        label: 'ORCID profiles to import'
+        file: _data/orcid.yaml
+        fields:
+          - name: list
+            label: 'ORCID iDs (add a member to auto-pull their papers)'
+            label_singular: 'ORCID iD'
+            widget: list
+            required: false
+            summary: '{{fields.orcid}}'
+            hint: 'Paste an ORCID iD like 0000-0002-1825-0097. Set the SAME iD in that person''s Member -> Known links -> ORCID so their papers show on their page.'
+            fields:
+              - { name: orcid, label: 'ORCID iD', widget: string }
+
+  # ====================================================================
   #  SITE SETTINGS (lab identity) -> _data/site.yaml
   # ====================================================================
   - name: site
@@ -225,6 +248,7 @@ collections:
               - { label: 'Subtle (image faint)', value: 0.92 }
               - { label: 'Medium', value: 0.85 }
               - { label: 'Strong (image prominent)', value: 0.72 }
+          - { name: member_publications_max, label: 'Auto-imported papers to show on each member page (rest link to ORCID)', widget: number, value_type: int, default: 5, min: 1 }
           - name: links
             label: 'Social / contact links'
             widget: object
