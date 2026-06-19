@@ -33,6 +33,7 @@ collections:
         label: 'Main page'
         file: _data/content/home.yaml
         fields:
+          - { name: banner, label: 'Home banner image (optional; blank = use site-wide Top banner)', widget: image, required: false }
           - { name: title, label: Big title, widget: string }
           - { name: intro, label: Intro paragraph, widget: text }
           - { name: feature1_title,  label: 'Panel 1 - title',  widget: string }
@@ -161,6 +162,8 @@ collections:
           - { name: title,       label: 'Lab name', widget: string }
           - { name: subtitle,    label: 'Subtitle (shown under the name)', widget: string, required: false }
           - { name: description, label: 'Description (for search engines / social previews)', widget: text, required: false }
+          - { name: header_image, label: 'Top banner image (shown at the top of every page)', widget: image, required: false }
+          - { name: footer_image, label: 'Footer background image', widget: image, required: false }
           - { name: page_background, label: 'Whole-page background image (leave blank for plain look)', widget: image, required: false }
           - name: page_panel_opacity
             label: 'How much the background shows through'
