@@ -53,6 +53,23 @@ collections:
         file: _data/content/research.yaml
         fields:
           - { name: intro, label: Intro paragraph, widget: text }
+          - { name: highlighted_heading, label: 'Heading above featured papers', widget: string }
+          - name: highlighted
+            label: 'Featured papers (title or DOI from your publications)'
+            widget: list
+            required: false
+            hint: 'Paste a paper title (or doi:10.xxxx/xxxx) that exists in your publications. Each one shows as a large card.'
+            field: { name: paper, label: 'Title or DOI', widget: string }
+          - { name: all_heading, label: 'Heading above the full publication list', widget: string }
+          - { name: videos_heading, label: 'Heading for the talks/videos section', widget: string }
+          - name: videos
+            label: 'Talks & videos (YouTube)'
+            widget: list
+            required: false
+            hint: 'Paste a normal YouTube link (watch?v=... or youtu.be/...). Empty list hides the whole section.'
+            fields:
+              - { name: title, label: 'Title / caption', widget: string, required: false }
+              - { name: url,   label: 'YouTube link', widget: string }
 
       - name: projects
         label: 'Projects page'
@@ -88,6 +105,18 @@ collections:
           - { name: phone_link,      label: 'Phone (dial link, e.g. +1-555-...)', widget: string }
           - { name: address_tooltip, label: 'Address tooltip', widget: string }
           - { name: address_link,    label: 'Map / address link', widget: string }
+          - name: extra_buttons
+            label: 'Extra buttons (next to email/phone/address)'
+            widget: list
+            required: false
+            fields:
+              - name: type
+                label: 'Icon'
+                widget: select
+                default: website
+                options: [website, link, email, phone, address, twitter, github, linkedin, orcid, google-scholar, youtube]
+              - { name: text, label: 'Button text', widget: string }
+              - { name: link, label: 'Link / value', widget: string }
           - name: figures
             label: 'Photos (add as many as you like)'
             widget: list
@@ -149,11 +178,16 @@ collections:
         hint: The team page groups people by role; ask the admin to add options here if you need a new role
         options:
           - { label: 'PI (Principal Investigator)', value: principal-investigator }
+          - { label: 'Co-PI',                       value: co-pi }
+          - { label: 'Research Scientist',          value: research-scientist }
           - { label: 'Postdoc',                     value: postdoc }
           - { label: 'PhD Student',                 value: phd }
           - { label: 'Masters Student',             value: masters }
           - { label: 'Undergraduate',               value: undergrad }
           - { label: 'Research Assistant / Programmer', value: programmer }
+          - { label: 'Lab Manager',                 value: lab-manager }
+          - { label: 'Visiting Scholar',            value: visiting }
+          - { label: 'Rotation Student',            value: rotation }
           - { label: 'Alumni (former member)',      value: alumni }
       - { name: affiliation, label: Affiliation, widget: string, required: false }
       - { name: aliases, label: 'Name aliases (for auto-matching paper authors, optional)', widget: list, required: false }
