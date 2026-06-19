@@ -1,35 +1,39 @@
-# =============================================================
-#  Publications. Edited via admin -> "Publications".
-#  Each item only needs an "id" (a DOI / PubMed ID / arXiv id / URL);
-#  the title, authors, journal, and date are fetched automatically.
-#  Add an image + description + tags to make a richer "Highlighted" card.
-#
-#  NOTE for maintainers: this file is wrapped under a top-level "list:"
-#  key so the visual admin can manage it as a single list. The citation
-#  builder (_cite/cite.py) unwraps it automatically; plain root-level
-#  lists still work too.
-# =============================================================
 list:
   - id: doi:10.1371/journal.pcbi.1007128
     type: paper
-    description: Lorem ipsum _dolor_ **sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    date: 2020-12-4
     image: https://journals.plos.org/ploscompbiol/article/figure/image?size=inline&id=info:doi/10.1371/journal.pcbi.1007128.g001&rev=2
+    description: Lorem ipsum _dolor_ **sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    tags:
+      - open science
+      - collaboration
+    repo: greenelab/meta-review
     buttons:
       - type: manubot
+        text: ''
         link: https://greenelab.github.io/meta-review/
       - type: source
         text: Manuscript Source
         link: https://github.com/greenelab/meta-review
       - type: website
+        text: ''
         link: http://manubot.org/
-    tags:
-      - open science
-      - collaboration
-    repo: greenelab/meta-review
-
+    title: ''
+    publisher: ''
+    date: 2020-12-4
+    link: ''
   - id: doi:10.1016/j.csbj.2020.05.017
     image: https://ars.els-cdn.com/content/image/1-s2.0-S2001037020302804-gr1.jpg
-
+    description: ''
+    repo: ''
+    title: ''
+    publisher: ''
+    date: ''
+    link: ''
   - id: doi:10.7554/eLife.32822
     image: https://iiif.elifesciences.org/lax:32822%2Felife-32822-fig8-v3.tif/full/863,/0/default.webp
+    description: ''
+    repo: ''
+    title: ''
+    publisher: ''
+    date: ''
+    link: ''
