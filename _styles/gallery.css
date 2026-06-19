@@ -32,6 +32,20 @@
   z-index: 1;
 }
 
+/*
+  Each <section> is its own stacking context (position:relative; z-index:1 in
+  background.scss), so a zoomed photo or an open lightbox would be covered by
+  the NEXT section. While hovering a photo, lift its whole section above the
+  others so the zoom isn't clipped. Same trick keeps the lightbox on top.
+*/
+section:has(.photo-thumb:hover) {
+  z-index: 5;
+}
+
+section:has(.lightbox:target) {
+  z-index: 1000;
+}
+
 /* ---------- click-to-enlarge lightbox (CSS :target only, no JS) ---------- */
 .lightbox {
   position: fixed;
