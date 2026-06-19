@@ -1,0 +1,38 @@
+/*
+  Optional ONE-image background behind the whole site.
+  Turned on when <html> has class "has-page-bg" (set in _layouts/default.html
+  from _data/site.yaml -> page_background). Content sits on semi-transparent
+  panels so text stays readable; --panel-opacity controls how much of the
+  image shows through (lower = image more visible).
+  Leave page_background blank in Site settings to fully restore the plain look.
+*/
+html.has-page-bg {
+  background-image: var(--page-bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* let the html background show through the body */
+html.has-page-bg body {
+  background: transparent;
+}
+
+/* content panels: translucent white (light) / dark (dark mode) */
+html.has-page-bg[data-dark=false] main > section {
+  background: rgba(255, 255, 255, var(--panel-opacity, 0.85));
+}
+
+html.has-page-bg[data-dark=true] main > section {
+  background: rgba(24, 24, 24, var(--panel-opacity, 0.85));
+}
+
+/* fixed background attachment is janky on mobile Safari - let it scroll there */
+@media (max-width: 600px) {
+  html.has-page-bg {
+    background-attachment: scroll;
+  }
+}
+
+/*# sourceMappingURL=page-background.css.map */
