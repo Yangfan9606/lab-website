@@ -21,7 +21,10 @@ The home page.
 
 ### 2. Research page
 - **Intro paragraph** (top of the page)
-- The publication list below it is **not** here - see "Adding publications" at the bottom.
+- **Heading above featured papers** (default "Highlighted")
+- **Featured papers** - a list; paste a paper title or DOI (must exist in your publications). Each shows as a large card.
+- **Heading above the full publication list** (default "All")
+- The full publication list itself comes from your DOIs - see "Adding publications" at the bottom.
 
 ### 3. Projects page
 - **Intro paragraph** (top of the page)
@@ -41,6 +44,7 @@ The home page.
 - **Intro paragraph** (top)
 - **Email address**, **Phone (shown)**, **Phone (dial link)**
 - **Address tooltip**, **Map / address link**
+- **Extra buttons** - a list; add as many as you like next to email/phone/address. Pick an icon, set button text + link.
 - **Photos** - a list (image + caption); add/remove as many as you like
 - **Bottom column 1 / 2 / 3** (the three text columns at the bottom)
 
@@ -62,7 +66,8 @@ The home page.
 
 ### 8. Members
 One entry per person. Click **+ Member** to add, open an entry to edit or delete.
-- **Name**, **Photo** (auto-cropped to a centered circle), **Role** (PI / Postdoc / PhD / Masters / Undergrad / RA-Programmer / Alumni), **Affiliation**
+- **Name**, **Photo** (auto-cropped to a centered circle), **Role** (PI / Co-PI / Research Scientist / Postdoc / PhD / Masters / Undergrad / RA-Programmer / Lab Manager / Visiting Scholar / Rotation Student / Alumni), **Affiliation**
+- The Team page shows people in **sections by role, in a fixed order with the PI/Leader first**; empty roles are skipped automatically. (To add/reorder roles, a maintainer edits three matched places: `_data/types.yaml`, the Role dropdown in `admin/config.yml`, and the `role_order` line in `team/index.md`.)
 - **Name aliases** (helps auto-match paper authors)
 - **Known links** - email, home page, ORCID, Scholar, GitHub, Twitter, LinkedIn. An icon shows **only if you fill that field** (blank = hidden). On the member's page each link shows its icon followed by the actual address/handle, left-aligned.
 - **Other links (custom)** - a list of label + URL pairs for anything not in the known list (e.g. CIW, a database profile). Shows a globe icon + your label.
