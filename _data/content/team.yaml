@@ -1,10 +1,11 @@
+# Team page. Edited via admin -> Pages -> "Team".
+# Templates read {{ site.data.content.team.* }}
 intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 band: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+# Photo wall - shows one row here; if there are more than photos_max,
+# a "More photos" button links to a full /photos/ page.
+photos_max: 6
 figures:
   - images/photo.jpg
   - images/photo.jpg
   - images/photo.jpg
-  - /images/12.png
-  - /images/fallback.svg
-  - /images/icon.png
-  - /images/12.png

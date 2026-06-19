@@ -1,10 +1,20 @@
+# Research page. Edited via admin -> Pages -> "Research".
+# Templates read {{ site.data.content.research.* }}
 intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+# Heading above the featured paper(s)
 highlighted_heading: Highlighted
+# Papers to feature at the top. Each value is a paper's TITLE (or DOI, e.g.
+# doi:10.1371/journal.pcbi.1007128) that already exists in your publications.
 highlighted:
   - Open collaborative writing with Manubot
-  - testeasd / 123
+
+# Heading above the full publication list
 all_heading: All
+
+# Talks & lecture videos. Paste a normal YouTube link (watch?v=... or youtu.be/...).
+# Leave the list empty to hide this whole section.
 videos_heading: Talks & Videos
-videos:
-  - title: Test viedo
-    url: text.com
+videos_max: 6          # how many to show here before a "More videos" button
+videos_size: 480px     # width of each video. 360px=small, 480px=medium, 720px=large, or any value
+videos: []
