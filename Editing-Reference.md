@@ -60,7 +60,9 @@ The home page.
 - **Lab name** - shown in the header and footer
 - **Subtitle** - small text under the name
 - **Description** - used by search engines and link previews
-- **Social / contact links** - Email, ORCID, Google Scholar, GitHub, Twitter/X, YouTube (footer icons). Leave one blank to hide that icon.
+- **Whole-page background image** - one image behind the entire site; content sits on translucent panels so text stays readable. **Leave blank for the plain look.**
+- **How much the background shows through** - Subtle / Medium / Strong.
+- **Social / contact links** - Email, ORCID, Google Scholar, GitHub, Twitter/X, YouTube, LinkedIn (footer icons). Leave one blank to hide that icon.
 
 > The background image and the lab logo are not in the admin: replace `images/background.jpg` (background) or add `images/logo.svg` / `logo.png` (logo) in the repo.
 
