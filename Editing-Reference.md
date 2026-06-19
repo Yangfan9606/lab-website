@@ -2,7 +2,7 @@
 
 What each section in the visual admin (`/admin`) lets you edit. Open `/admin`, pick a section in the left sidebar, change the fields, click **Save** -> the live site updates in ~1-3 minutes (hard-refresh with Ctrl/Cmd+Shift+R if you don't see it).
 
-The sidebar has **4 sections**: **Pages** (click it, then pick one of the 6 pages on the right), **Site settings**, **Members**, and **Blog posts**.
+The sidebar has these sections: **Pages** (click it, then pick one of the 6 pages on the right), **Publications**, **Site settings**, **Members**, **Projects**, and **Blog posts**.
 
 ---
 
@@ -28,7 +28,9 @@ The home page.
 - **Talks & videos** (shown right under Highlighted) - a list of YouTube links (paste a normal watch?v=... or youtu.be/... URL + a title). They embed side by side as players. Empty list hides the section.
   - **How many videos to show** (`videos_max`, default 6); if you have more, a **More videos** button appears linking to a full `/videos/` page.
   - **Video size** - Small / Medium / Large (or type any CSS width in the data file for a custom size).
-- The full publication list itself comes from your DOIs - see "Adding publications" at the bottom.
+- **The full publication list** is now editable in the admin too - it's the **Publications** section in the sidebar (see below). Add/remove papers there; this is what fills both the "Highlighted" cards (when you reference a paper's title/DOI above) and the full list under "All".
+
+> Not in the admin (page layout): the "Research" heading + icon and the nav tooltip live in `research/index.md`.
 
 ### 3. Projects page
 - **Intro paragraph** (top of the page)
@@ -83,6 +85,14 @@ One entry per person. Click **+ Member** to add, open an entry to edit or delete
 - **Bio**
 - The Team page automatically groups people by role and **wraps to multiple rows** - 4 people or 40, no layout editing needed.
 
+### Publications
+The **Publications** section in the sidebar -> open **Publication list** -> the **Publications** list. Click **+ Publication** to add, open one to edit, or use the trash icon to remove.
+- **ID** - the only field you usually need: a DOI (`doi:10.1234/abc`), PubMed ID (`pmid:12345678`), arXiv id (`arxiv:2001.00001`), or a plain URL. The **title, authors, journal, and date are fetched automatically** when the site rebuilds.
+- **Type** (icon), **Image/thumbnail**, **Description** (shows on Highlighted cards), **Tags**, **GitHub repo** (shows stars), **Buttons** (extra links under the card).
+- Advanced (optional, all override the auto-fetched value): **Title / Authors / Journal / Date / Link**.
+- **Hide this entry** - keeps the row but removes it from the site.
+- To feature a paper as a large card at the top of Research, also add its **title or DOI** to **Pages -> Research page -> Featured papers**.
+
 ### Projects
 One entry per project card. Click **+ Project** to add, open one to edit or delete.
 - **Title**, **Subtitle**, **Section** (Featured = large top row / More = smaller below), **Image**, **Link**, **Description**, **GitHub repo** (optional, shows stars), **Tags**
@@ -98,15 +108,11 @@ One entry per post. Click **+ Blog post** to add.
 
 **Can I add more items anytime?**
 - **Members** and **Blog posts**: yes - unlimited. Use **+ Member** / **+ Blog post**. The team grid and blog list grow automatically.
-- **Publications**: yes - unlimited (see below).
+- **Publications**: yes - unlimited. Use the **Publications** section -> **+ Publication**.
 - **Projects**: yes - unlimited. Use **+ Project**.
 - **Home page panels**: no - fixed at 3 by the layout. A 4th would require a layout change.
 
-**Adding publications** (admin, one line): edit `_data/sources.yaml`, add a line at the top:
-```yaml
-- id: doi:10.1234/your.doi.here
-```
-The template auto-fetches the title, authors, journal, and thumbnail. They appear on the Research page.
+**Adding publications**: use the **Publications** section in the admin -> **+ Publication**, then paste a DOI (e.g. `doi:10.1234/your.doi.here`) into **ID**. The template auto-fetches the title, authors, journal, and thumbnail on the next rebuild, and they appear on the Research page.
 
 **Adding projects**: use the **Projects** section in the admin -> **+ Project**. Set **Section = Featured** for the large top row, or **More** for the smaller grid below.
 

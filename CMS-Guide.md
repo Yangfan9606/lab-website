@@ -132,12 +132,12 @@ These are intentionally kept out of the admin (they contain layout or are low-fr
 
 | What to change | How |
 |---|---|
-| **Background image** | Upload the new image to `images/`, name it `background.jpg` to overwrite the old one (`_config.yaml`'s `header:`/`footer:` already point to it - no edit needed). Or use a new name and update those two lines. |
-| **Add a publication** | Add a line at the top of `_data/sources.yaml`: `- id: doi:10.xxxx/xxxxx`. The template **auto-fetches title/authors/thumbnail**. |
-| **Lab name / subtitle / social links** | Edit `title` / `subtitle` / `links` at the top of `_config.yaml`. |
-| **Home / Research / Projects page intro text** | Edit `index.md` / `research/index.md` / `projects/index.md`. WARNING: those bodies contain `{% include ... %}` layout components - **only edit the text paragraphs, never delete lines with `{% %}`.** |
+| **Logo** | Add `images/logo.svg` (or `.png` / `.jpg`). |
+| **Font size / fonts / colors** | Edit `_styles/-theme.scss` (`:root { ... }`). |
+| **Page headings + icons** (e.g. the "Research" / "Team" titles) and **nav order/tooltips** | Edit each page's `index.md` frontmatter and its first heading line. WARNING: page bodies contain `{% include ... %}` layout components - **only edit text, never delete lines with `{% %}`.** |
+| **Jekyll / plugin settings** | `_config.yaml`. |
 
-> Want "publications" and "page text" editable from the admin too? Possible, but publications are a YAML list and pages contain layout components - it needs extra adaptation and risks breaking layout. Get "Members + News" working first, extend only if truly needed.
+> Now editable in the admin (previously hand-edited): **Publications** (Publications section), **lab name / subtitle / social links** (Site settings), and **all page intro text + panels** (Pages). See `Editing-Reference.md`.
 
 ---
 
