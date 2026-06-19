@@ -22,9 +22,9 @@ nav:
 
 {% capture content %}
 
-{% include figure.html image=site.data.content.team.figure1_image %}
-{% include figure.html image=site.data.content.team.figure2_image %}
-{% include figure.html image=site.data.content.team.figure3_image %}
+{% for photo in site.data.content.team.figures %}
+{% include figure.html image=photo %}
+{% endfor %}
 
 {% endcapture %}
 
