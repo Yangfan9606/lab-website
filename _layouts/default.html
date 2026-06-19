@@ -1,5 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-dark="false">
+{% assign pagebg = site.data.site.page_background %}
+<html
+  lang="en"
+  data-dark="false"
+  {% if pagebg and pagebg != "" %}
+    class="has-page-bg"
+    style="--page-bg: url('{{ pagebg | relative_url }}'); --panel-opacity: {{ site.data.site.page_panel_opacity | default: 0.85 }};"
+  {% endif %}
+>
   {% include head.html %}
   <body>
     {% include header.html %}
