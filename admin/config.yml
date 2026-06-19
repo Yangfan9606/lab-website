@@ -150,6 +150,58 @@ collections:
           - { name: col3, label: 'Bottom column 3', widget: text }
 
   # ====================================================================
+  #  PUBLICATIONS -> _data/sources.yaml (wrapped under "list:")
+  #  Each item only needs an "id" (DOI / PubMed ID / arXiv / URL); the
+  #  title, authors, journal and date are fetched automatically by the
+  #  citation builder. Everything else is optional and overrides the
+  #  auto-fetched value. All known fields are declared so editing an
+  #  entry never strips data it doesn't know about.
+  # ====================================================================
+  - name: publications
+    label: Publications
+    files:
+      - name: sources
+        label: 'Publication list'
+        file: _data/sources.yaml
+        fields:
+          - name: list
+            label: 'Publications (add / remove anytime)'
+            label_singular: 'Publication'
+            widget: list
+            required: false
+            summary: '{{fields.title | default: fields.id}}'
+            hint: 'Click "+ Publication" to add a paper. Usually you only fill in the ID; the rest is fetched automatically.'
+            fields:
+              - { name: id, label: 'ID (e.g. doi:10.1234/abc, pmid:12345678, arxiv:2001.00001, or a URL)', widget: string, required: false }
+              - name: type
+                label: 'Type (icon)'
+                widget: select
+                required: false
+                default: paper
+                options: [paper, preprint, talk, poster, dataset, software, website, book, chapter, patent, other]
+              - { name: image, label: 'Image / thumbnail (optional)', widget: image, required: false }
+              - { name: description, label: 'Description (optional; shows on Highlighted cards. Markdown ok)', widget: text, required: false }
+              - name: tags
+                label: 'Tags (optional)'
+                widget: list
+                required: false
+              - { name: repo, label: 'GitHub repo (owner/name, optional - shows stars)', widget: string, required: false }
+              - name: buttons
+                label: 'Buttons (optional links under the card)'
+                widget: list
+                required: false
+                fields:
+                  - { name: type, label: 'Icon/type (e.g. website, source, manubot, pdf)', widget: string, required: false }
+                  - { name: text, label: 'Button text (optional)', widget: string, required: false }
+                  - { name: link, label: 'Link', widget: string, required: false }
+              - { name: title, label: 'Title (optional - overrides the auto-fetched title)', widget: string, required: false }
+              - { name: authors, label: 'Authors (optional - overrides auto-fetched)', widget: list, required: false }
+              - { name: publisher, label: 'Journal / publisher (optional - overrides auto-fetched)', widget: string, required: false }
+              - { name: date, label: 'Date (YYYY-MM-DD, optional - overrides auto-fetched)', widget: string, required: false }
+              - { name: link, label: 'Link (optional - overrides auto-fetched)', widget: string, required: false }
+              - { name: remove, label: 'Hide this entry (keeps it here but removes it from the site)', widget: boolean, required: false, default: false }
+
+  # ====================================================================
   #  SITE SETTINGS (lab identity) -> _data/site.yaml
   # ====================================================================
   - name: site
