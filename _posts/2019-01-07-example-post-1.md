@@ -1,5 +1,6 @@
 ---
-title: Example post 1
+title: News 111 Example post 1
+date: 2026-06-19
 author: sarah-johnson
 tags:
   - biology
