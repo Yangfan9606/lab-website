@@ -11,3 +11,8 @@ highlighted:
 
 # Heading above the full publication list
 all_heading: All
+
+# Talks & lecture videos. Paste a normal YouTube link (watch?v=... or youtu.be/...).
+# Leave the list empty to hide this whole section.
+videos_heading: Talks & Videos
+videos: []
