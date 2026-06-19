@@ -11,6 +11,19 @@ nav:
 
 {% include section.html %}
 
+{% comment %} Photo wall, moved to the top. Edited under Pages -> Team. {% endcomment %}
+{% capture content %}
+
+{% for photo in site.data.content.team.figures %}
+{% include figure.html image=photo %}
+{% endfor %}
+
+{% endcapture %}
+
+{% include grid.html style="square" content=content %}
+
+{% include section.html %}
+
 {% comment %}
   Team is grouped into sections by role, in this fixed order (PI/Leader first).
   To add or reorder a role: edit this list AND _data/types.yaml (icon + label)
@@ -32,15 +45,3 @@ nav:
 {% include section.html background="images/background.jpg" dark=true %}
 
 {{ site.data.content.team.band }}
-
-{% include section.html %}
-
-{% capture content %}
-
-{% for photo in site.data.content.team.figures %}
-{% include figure.html image=photo %}
-{% endfor %}
-
-{% endcapture %}
-
-{% include grid.html style="square" content=content %}
