@@ -10,7 +10,7 @@
 # ---------- Backend: which GitHub repo content is stored in ----------
 backend:
   name: github
-  repo: YOUR-USERNAME/YOUR-REPO   # ★MUST CHANGE: set to "username/repo"; update again after transfer to the lab account
+  repo: Yangfan9606/lab-website   # ★set to "username/repo"; update again after transfer to the lab account
   branch: main                    # edits save to main; GitHub Actions builds and publishes to gh-pages
   # base_url: https://YOUR-AUTH-WORKER.workers.dev   # ★OAuth relay (see "CMS-Guide.md" section 3)
 
@@ -31,6 +31,81 @@ locale: en
 #  to prevent accidental layout breakage (edit them by hand).
 # =============================================================
 collections:
+
+  # ========== 0) Pages -> _data/content.yaml ==========
+  # Edits the text/images of each page panel. The page templates
+  # read these values via Liquid, so layout stays locked and safe.
+  - name: pages
+    label: Pages (text & images)
+    label_singular: Page
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: home
+        label: Home page
+        file: _data/content.yaml
+        # NOTE: a file-collection writes the WHOLE file, so every page
+        # below must be declared here or its keys would be wiped on save.
+        fields:
+          - name: home
+            label: Home
+            widget: object
+            fields:
+              - { name: title, label: Big title, widget: string }
+              - { name: intro, label: Intro paragraph, widget: text }
+              - { name: feature1_title,  label: 'Panel 1 - title',  widget: string }
+              - { name: feature1_text,   label: 'Panel 1 - text',   widget: text }
+              - { name: feature1_button, label: 'Panel 1 - button label', widget: string }
+              - { name: feature1_image,  label: 'Panel 1 - image',  widget: image }
+              - { name: feature2_title,  label: 'Panel 2 - title',  widget: string }
+              - { name: feature2_text,   label: 'Panel 2 - text',   widget: text }
+              - { name: feature2_button, label: 'Panel 2 - button label', widget: string }
+              - { name: feature2_image,  label: 'Panel 2 - image',  widget: image }
+              - { name: feature3_title,  label: 'Panel 3 - title',  widget: string }
+              - { name: feature3_text,   label: 'Panel 3 - text',   widget: text }
+              - { name: feature3_button, label: 'Panel 3 - button label', widget: string }
+              - { name: feature3_image,  label: 'Panel 3 - image',  widget: image }
+          - name: research
+            label: Research page
+            widget: object
+            fields:
+              - { name: intro, label: Intro paragraph, widget: text }
+          - name: projects
+            label: Projects page
+            widget: object
+            fields:
+              - { name: intro, label: Intro paragraph, widget: text }
+          - name: team
+            label: Team page
+            widget: object
+            fields:
+              - { name: intro, label: Intro paragraph, widget: text }
+              - { name: band,  label: 'Mid-page band paragraph', widget: text }
+              - { name: figure1_image, label: 'Photo 1', widget: image }
+              - { name: figure2_image, label: 'Photo 2', widget: image }
+              - { name: figure3_image, label: 'Photo 3', widget: image }
+          - name: blog
+            label: Blog page
+            widget: object
+            fields:
+              - { name: intro, label: Intro paragraph, widget: text }
+          - name: contact
+            label: Contact page
+            widget: object
+            fields:
+              - { name: intro, label: Intro paragraph, widget: text }
+              - { name: email,           label: Email address, widget: string }
+              - { name: phone_text,      label: 'Phone (shown)', widget: string }
+              - { name: phone_link,      label: 'Phone (dial link, e.g. +1-555-...)', widget: string }
+              - { name: address_tooltip, label: 'Address tooltip', widget: string }
+              - { name: address_link,    label: 'Map / address link', widget: string }
+              - { name: figure1_image,   label: 'Photo 1', widget: image }
+              - { name: figure1_caption, label: 'Photo 1 caption', widget: string, required: false }
+              - { name: figure2_image,   label: 'Photo 2', widget: image }
+              - { name: figure2_caption, label: 'Photo 2 caption', widget: string, required: false }
+              - { name: col1, label: 'Bottom column 1', widget: text }
+              - { name: col2, label: 'Bottom column 2', widget: text }
+              - { name: col3, label: 'Bottom column 3', widget: text }
 
   # ========== 1) Members -> _members/*.md ==========
   - name: members
