@@ -16,7 +16,8 @@
   -->
 
   <div>
-    {% for link in site.links %}
+    {% assign links = site.data.site.links | default: site.links %}
+    {% for link in links %}
       {% assign key = link[0] %}
       {% assign value = link[1] %}
       {% include button.html type=key text="" link=value style="bare" %}
@@ -25,7 +26,7 @@
 
   <div>
     &copy; {{ site.time | date: "%Y" }}
-    {{ site.title }}
+    {{ site.data.site.title | default: site.title }}
     &nbsp; | &nbsp; Built with
     <a href="https://github.com/greenelab/lab-website-template">
       Lab Website Template

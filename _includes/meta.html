@@ -1,3 +1,7 @@
+{% assign site_title = site.data.site.title | default: site.title %}
+{% assign site_subtitle = site.data.site.subtitle | default: site.subtitle %}
+{% assign site_description = site.data.site.description | default: site.description %}
+
 {% assign filename = page.path | split: "/" | last %}
 {% if page.name and page.name != filename %}
   {% assign title = page.name %}
@@ -13,17 +17,17 @@
 {% if title and title != "" %}
   {% assign fulltitle = fulltitle | push: title %}
 {% endif %}
-{% if site.title and site.title != "" %}
-  {% assign fulltitle = fulltitle | push: site.title %}
+{% if site_title and site_title != "" %}
+  {% assign fulltitle = fulltitle | push: site_title %}
 {% endif %}
 {% assign fulltitle = fulltitle | join: " | " %}
 
-{% assign subtitle = site.subtitle %}
+{% assign subtitle = site_subtitle %}
 
-{% assign description = page.description | default: site.description %}
-{% if site.subtitle %}
+{% assign description = page.description | default: site_description %}
+{% if site_subtitle %}
   {% capture description -%}
-    {{ site.subtitle }}. {{ description }}
+    {{ site_subtitle }}. {{ description }}
   {%- endcapture %}
 {% endif %}
 {% capture url -%}
@@ -55,7 +59,7 @@
 <meta name="description" content="{{ description }}">
 
 <meta property="og:title" content="{{ title }}">
-<meta property="og:site_title" content="{{ site.title | xml_escape }}">
+<meta property="og:site_title" content="{{ site_title | xml_escape }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ url }}">
 <meta property="og:image" content="{{ share }}">
