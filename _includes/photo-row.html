@@ -5,6 +5,7 @@
     limit  = (optional) max number to show; omit to show all
     id     = (optional) namespace so lightbox ids stay unique per page
     mode   = (optional) "grid" = wrapping grid (full page); default = one poker row
+    size   = (optional) thumbnail size, e.g. "180px"; default 180px
 {% endcomment %}
 {% assign photos = include.photos %}
 {% if include.limit %}
@@ -13,10 +14,11 @@
   {% assign shown = photos %}
 {% endif %}
 {% assign ns = include.id | default: "g" %}
+{% assign size = include.size | default: "180px" %}
 {% assign rowclass = "photo-row" %}
 {% if include.mode == "grid" %}{% assign rowclass = "photo-grid" %}{% endif %}
 
-<div class="{{ rowclass }}">
+<div class="{{ rowclass }}" style="--thumb: {{ size }};">
   {% for photo in shown %}
     <a href="#lb-{{ ns }}-{{ forloop.index }}" class="photo-thumb" aria-label="enlarge photo">
       <img src="{{ photo | relative_url | uri_escape }}" loading="lazy" alt="photo">
