@@ -62,7 +62,7 @@ collections:
             field: { name: paper, label: 'Title or DOI', widget: string }
           - { name: all_heading, label: 'Heading above the full publication list', widget: string }
           - { name: videos_heading, label: 'Heading for the talks/videos section', widget: string }
-          - { name: videos_max, label: 'How many videos to show here (rest go to a More page)', widget: number, value_type: int, default: 6, min: 1 }
+          - { name: videos_max, label: 'How many videos to show in the row (rest go to a More page)', widget: number, value_type: int, default: 3, min: 1 }
           - name: videos_size
             label: 'Video size'
             widget: select
