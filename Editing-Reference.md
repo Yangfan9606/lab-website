@@ -25,7 +25,7 @@ The home page.
 
 ### 3. Projects page
 - **Intro paragraph** (top of the page)
-- The project cards are **not** here yet - see "Adding projects" at the bottom.
+- The project cards are their own **Projects** section in the sidebar (add/remove anytime).
 
 ### 4. Team page
 - **Intro paragraph** (top)
@@ -69,7 +69,12 @@ One entry per person. Click **+ Member** to add, open an entry to edit or delete
 - **Bio**
 - The Team page automatically groups people by role and **wraps to multiple rows** - 4 people or 40, no layout editing needed.
 
-### 9. Blog posts
+### Projects
+One entry per project card. Click **+ Project** to add, open one to edit or delete.
+- **Title**, **Subtitle**, **Section** (Featured = large top row / More = smaller below), **Image**, **Link**, **Description**, **GitHub repo** (optional, shows stars), **Tags**
+- The Projects page fills its Featured and More rows automatically.
+
+### Blog posts
 One entry per post. Click **+ Blog post** to add.
 - **Title**, **Date**, **Author** (dropdown of Members), **Tags**, **Body**
 
@@ -80,7 +85,7 @@ One entry per post. Click **+ Blog post** to add.
 **Can I add more items anytime?**
 - **Members** and **Blog posts**: yes - unlimited. Use **+ Member** / **+ Blog post**. The team grid and blog list grow automatically.
 - **Publications**: yes - unlimited (see below).
-- **Projects**: yes, but not in the admin yet (see below).
+- **Projects**: yes - unlimited. Use **+ Project**.
 - **Home page panels**: no - fixed at 3 by the layout. A 4th would require a layout change.
 
 **Adding publications** (admin, one line): edit `_data/sources.yaml`, add a line at the top:
@@ -89,7 +94,7 @@ One entry per post. Click **+ Blog post** to add.
 ```
 The template auto-fetches the title, authors, journal, and thumbnail. They appear on the Research page.
 
-**Adding projects** (admin, for now edits a file): edit `_data/projects.yaml` - copy an existing block and change the fields (`title`, `subtitle`, `group`, `image`, `link`, `description`, `repo`, `tags`). Set `group: featured` to put it in the Featured row. (Ask the maintainer if you want this moved into the visual admin too - it's possible with a small restructure.)
+**Adding projects**: use the **Projects** section in the admin -> **+ Project**. Set **Section = Featured** for the large top row, or **More** for the smaller grid below.
 
 **Can I change the font size?**
 Yes, but it's a style setting, not content - edit `_styles/-theme.scss`:
