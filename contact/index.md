@@ -30,27 +30,15 @@ nav:
 
 {% include section.html %}
 
-{% capture col1 %}
+{% capture content %}
 
-{%
-  include figure.html
-  image=site.data.content.contact.figure1_image
-  caption=site.data.content.contact.figure1_caption
-%}
+{% for fig in site.data.content.contact.figures %}
+{% include figure.html image=fig.image caption=fig.caption %}
+{% endfor %}
 
 {% endcapture %}
 
-{% capture col2 %}
-
-{%
-  include figure.html
-  image=site.data.content.contact.figure2_image
-  caption=site.data.content.contact.figure2_caption
-%}
-
-{% endcapture %}
-
-{% include cols.html col1=col1 col2=col2 %}
+{% include grid.html style="square" content=content %}
 
 {% include section.html dark=true %}
 
