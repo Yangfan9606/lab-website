@@ -179,6 +179,34 @@ collections:
           - { name: link,  label: 'URL', widget: string }
       - { name: body, label: Bio, widget: markdown, required: false }
 
+  # ---------- Projects -> _projects/*.md ----------
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: _projects
+    create: true                  # "+ Project" anytime
+    slug: '{{fields.title | lower | replace(" ", "-")}}'
+    summary: '{{fields.title}}'
+    sort:
+      - { field: title, direction: ascending }
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: subtitle, label: Subtitle, widget: string, required: false }
+      - name: group
+        label: Section
+        widget: select
+        default: more
+        hint: '"Featured" shows large in the top row; "More" shows smaller below.'
+        options:
+          - { label: 'Featured (top row)', value: featured }
+          - { label: 'More (smaller, below)', value: more }
+      - { name: image, label: Image, widget: image, required: false, default: images/photo.jpg }
+      - { name: link, label: 'Link (where the card goes when clicked)', widget: string, required: false }
+      - { name: description, label: Description, widget: text, required: false }
+      - { name: repo, label: 'GitHub repo (owner/name, optional - shows stars)', widget: string, required: false }
+      - { name: tags, label: Tags, widget: list, required: false }
+      - { name: body, label: 'Notes (not shown on the card)', widget: markdown, required: false }
+
   # ---------- Blog posts -> _posts/*.md ----------
   - name: blog-posts
     label: 'Blog posts'
