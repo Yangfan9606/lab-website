@@ -1,19 +1,10 @@
 ---
 ---
 
-/* ---------- photo wall: single wrapping row of thumbnails ---------- */
-.photo-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin: 40px 0;
-}
-
+/* ===================== shared thumbnail ===================== */
 .photo-thumb {
   display: block;
-  width: 160px;
-  height: 160px;
+  flex: 0 0 auto;
   border-radius: var(--rounded);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -27,29 +18,62 @@
   display: block;
 }
 
-/* hover: highlight + zoom */
 .photo-thumb:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px 0 var(--overlay);
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  box-shadow: 0 0 20px 0 var(--overlay);
+}
+
+/* ===== preview: ONE row, poker-stacked (medium size) ===== */
+.photo-row {
+  display: flex;
+  flex-wrap: nowrap;          /* never wrap - single row only */
+  justify-content: center;
+  margin: 40px 0;
+  padding: 22px 0;            /* headroom for the hover lift */
+}
+
+.photo-row .photo-thumb {
+  width: 150px;              /* medium */
+  height: 150px;
+  margin-left: -45px;        /* overlap like a hand of cards */
+}
+
+.photo-row .photo-thumb:first-child {
+  margin-left: 0;
+}
+
+.photo-row .photo-thumb:hover {
+  transform: translateY(-16px) scale(1.06);   /* lift the hovered card out */
+}
+
+/* ===== full page (/photos/): wrapping grid, no overlap ===== */
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0;
+}
+
+.photo-grid .photo-thumb {
+  width: 160px;
+  height: 160px;
+}
+
+.photo-grid .photo-thumb:hover {
+  transform: scale(1.08);
 }
 
 /*
   Each <section> is its own stacking context (position:relative; z-index:1 in
-  background.scss), so a zoomed photo or an open lightbox would be covered by
-  the NEXT section. While hovering a photo, lift its whole section above the
-  others so the zoom isn't clipped. Same trick keeps the lightbox on top.
+  background.scss), so a lifted card or open lightbox would be clipped by the
+  NEXT section. Lift the whole section while hovering / when a lightbox is open.
 */
-section:has(.photo-thumb:hover) {
-  z-index: 5;
-}
+section:has(.photo-thumb:hover) { z-index: 5; }
+section:has(.lightbox:target) { z-index: 1000; }
 
-section:has(.lightbox:target) {
-  z-index: 1000;
-}
-
-/* ---------- click-to-enlarge lightbox (CSS :target only, no JS) ---------- */
+/* ===================== click-to-enlarge lightbox (CSS only) ===================== */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -74,18 +98,30 @@ section:has(.lightbox:target) {
   box-shadow: var(--shadow);
 }
 
-/* ---------- video row: side-by-side, wrapping ---------- */
+/* ===================== videos ===================== */
+/* preview: ONE row (scroll sideways if the chosen count doesn't fit) */
 .video-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: safe center;
+  overflow-x: auto;
+  gap: 30px;
+  margin: 40px 0;
+  padding-bottom: 10px;
+}
+
+/* full page (/videos/): wrapping grid */
+.video-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
   gap: 30px;
   margin: 40px 0;
 }
 
 .video-item {
-  max-width: 100%;
+  flex: 0 0 auto;
+  max-width: 90vw;
 }
 
 .video-frame {
