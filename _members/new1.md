@@ -4,5 +4,11 @@ image: images/photo.jpg
 role: postdoc
 affiliation: ''
 aliases: []
-links: null
+links:
+  email: test@gmail.com
+  home-page: ''
+  orcid: ''
+  google-scholar: ''
+  github: ''
+  twitter: ''
 ---
