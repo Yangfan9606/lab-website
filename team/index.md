@@ -12,14 +12,15 @@ nav:
 {% include section.html %}
 
 {% comment %} Photo wall (one row + More). Edited under Pages -> Team. {% endcomment %}
+{% assign pmax = site.data.content.team.photos_max | plus: 0 %}
 {%
   include photo-row.html
   photos=site.data.content.team.figures
-  limit=site.data.content.team.photos_max
+  limit=pmax
   id="team"
 %}
 
-{% if site.data.content.team.figures.size > site.data.content.team.photos_max %}
+{% if site.data.content.team.figures.size > pmax %}
 {%
   include button.html
   link="photos"
