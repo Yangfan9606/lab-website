@@ -1,19 +1,8 @@
-# =============================================================
-#  Lab identity. Edited via admin -> "Site settings".
-#  Templates read these (header/footer/meta) with a fallback to
-#  the same keys in _config.yaml, so _config.yaml never needs to
-#  be opened in the CMS (which would risk wiping Jekyll settings).
-# =============================================================
 title: Lab Website Template
 subtitle: by the Greene Lab
 description: An easy-to-use, flexible website template for labs, with automatic citations, GitHub tag imports, pre-built components, and more.
-
-# Optional: one image behind the whole site. Content sits on translucent
-# panels so text stays readable. Leave page_background blank for the plain look.
 page_background: images/background.jpg
-page_panel_opacity: 0.85   # 0.92 = image faint, 0.85 = medium, 0.72 = image prominent
-
-# Social / contact links shown in the footer. Leave a value blank to hide that icon.
+page_panel_opacity: 0.92
 links:
   email: contact@your-lab.com
   orcid: 0000-0001-8713-9213
