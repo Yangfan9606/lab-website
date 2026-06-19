@@ -1,0 +1,29 @@
+{% comment %}
+  Renders a single wrapping row of photo thumbnails with hover-zoom and a
+  CSS-only click-to-enlarge lightbox.
+  Params:
+    photos = a list of image paths
+    limit  = (optional) max number to show; omit to show all
+    id     = (optional) namespace so lightbox ids stay unique per page
+{% endcomment %}
+{% assign photos = include.photos %}
+{% if include.limit %}
+  {% assign shown = photos | slice: 0, include.limit %}
+{% else %}
+  {% assign shown = photos %}
+{% endif %}
+{% assign ns = include.id | default: "g" %}
+
+<div class="photo-row">
+  {% for photo in shown %}
+    <a href="#lb-{{ ns }}-{{ forloop.index }}" class="photo-thumb" aria-label="enlarge photo">
+      <img src="{{ photo | relative_url | uri_escape }}" loading="lazy" alt="photo">
+    </a>
+  {% endfor %}
+</div>
+
+{% for photo in shown %}
+  <a href="#_" id="lb-{{ ns }}-{{ forloop.index }}" class="lightbox" aria-label="close enlarged photo">
+    <img src="{{ photo | relative_url | uri_escape }}" alt="enlarged photo">
+  </a>
+{% endfor %}

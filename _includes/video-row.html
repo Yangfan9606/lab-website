@@ -1,0 +1,38 @@
+{% comment %}
+  Renders a row of YouTube videos side by side (wrapping).
+  Params:
+    videos = a list of { title, url }
+    limit  = (optional) max number to show; omit to show all
+    width  = (optional) width of each video, e.g. "480px"; default 480px
+{% endcomment %}
+{% assign videos = include.videos %}
+{% if include.limit %}
+  {% assign shown = videos | slice: 0, include.limit %}
+{% else %}
+  {% assign shown = videos %}
+{% endif %}
+{% assign vw = include.width | default: "480px" %}
+
+<div class="video-row">
+  {% for v in shown %}
+    {% assign url = v.url %}
+    {% if url contains "youtu.be/" %}
+      {% assign vid = url | split: "youtu.be/" | last | split: "?" | first %}
+    {% elsif url contains "v=" %}
+      {% assign vid = url | split: "v=" | last | split: "&" | first %}
+    {% else %}
+      {% assign vid = url | split: "/" | last | split: "?" | first %}
+    {% endif %}
+    <div class="video-item" style="width: {{ vw }};">
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/{{ vid }}"
+          loading="lazy"
+          allowfullscreen
+          title="{{ v.title | default: 'video' }}"
+        ></iframe>
+      </div>
+      {% if v.title %}<p class="video-title">{{ v.title }}</p>{% endif %}
+    </div>
+  {% endfor %}
+</div>
