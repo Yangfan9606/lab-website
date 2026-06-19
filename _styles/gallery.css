@@ -31,9 +31,9 @@
 }
 
 .photo-row .photo-thumb {
-  width: 150px; /* medium */
-  height: 150px;
-  margin-left: -45px; /* overlap like a hand of cards */
+  width: var(--thumb, 180px);
+  height: var(--thumb, 180px);
+  margin-left: calc(var(--thumb, 180px) * -0.3); /* overlap scales with size */
 }
 
 .photo-row .photo-thumb:first-child {
@@ -54,8 +54,8 @@
 }
 
 .photo-grid .photo-thumb {
-  width: 160px;
-  height: 160px;
+  width: var(--thumb, 180px);
+  height: var(--thumb, 180px);
 }
 
 .photo-grid .photo-thumb:hover {
