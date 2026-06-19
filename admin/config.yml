@@ -94,6 +94,15 @@ collections:
           - { name: intro, label: Intro paragraph, widget: text }
           - { name: band,  label: 'Mid-page band paragraph', widget: text }
           - { name: photos_max, label: 'How many photos to show in the row (rest go to a More page)', widget: number, value_type: int, default: 6, min: 1 }
+          - name: photos_size
+            label: 'Photo size'
+            widget: select
+            default: 180px
+            options:
+              - { label: 'Small', value: 130px }
+              - { label: 'Medium', value: 180px }
+              - { label: 'Large', value: 240px }
+            hint: 'Thumbnail size. For a custom size, type any CSS value (e.g. 200px) in _data/content/team.yaml.'
           - name: figures
             label: 'Photo wall (add as many as you like)'
             widget: list
