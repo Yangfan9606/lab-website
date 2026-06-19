@@ -2,7 +2,7 @@
 
 What each section in the visual admin (`/admin`) lets you edit. Open `/admin`, pick a section in the left sidebar, change the fields, click **Save** -> the live site updates in ~1-3 minutes (hard-refresh with Ctrl/Cmd+Shift+R if you don't see it).
 
-The admin has **9 sections**, in three groups: the **6 pages**, **Site settings**, and the two **repeatable lists** (Members, Blog posts).
+The sidebar has **4 sections**: **Pages** (click it, then pick one of the 6 pages on the right), **Site settings**, **Members**, and **Blog posts**.
 
 ---
 
@@ -30,7 +30,7 @@ The home page.
 ### 4. Team page
 - **Intro paragraph** (top)
 - **Mid-page band paragraph** (the text in the dark photo band)
-- **Photo 1 / 2 / 3** (the three images in the bottom grid)
+- **Bottom photos** - a list; add/remove as many as you like, they wrap into a grid automatically
 - The people grid comes from the **Members** section (below).
 
 ### 5. Blog page
@@ -41,7 +41,7 @@ The home page.
 - **Intro paragraph** (top)
 - **Email address**, **Phone (shown)**, **Phone (dial link)**
 - **Address tooltip**, **Map / address link**
-- **Photo 1 + caption**, **Photo 2 + caption**
+- **Photos** - a list (image + caption); add/remove as many as you like
 - **Bottom column 1 / 2 / 3** (the three text columns at the bottom)
 
 ---
@@ -63,8 +63,11 @@ The home page.
 ### 8. Members
 One entry per person. Click **+ Member** to add, open an entry to edit or delete.
 - **Name**, **Photo** (auto-cropped to a centered circle), **Role** (PI / Postdoc / PhD / Masters / Undergrad / RA-Programmer / Alumni), **Affiliation**
-- **Name aliases** (helps auto-match paper authors), **Links** (email, home page, ORCID, Scholar, GitHub, Twitter), **Bio**
-- The Team page automatically groups people by role - no layout editing needed.
+- **Name aliases** (helps auto-match paper authors)
+- **Known links** - email, home page, ORCID, Scholar, GitHub, Twitter, LinkedIn. An icon shows **only if you fill that field** (blank = hidden). On the member's page each link shows its icon followed by the actual address/handle, left-aligned.
+- **Other links (custom)** - a list of label + URL pairs for anything not in the known list (e.g. CIW, a database profile). Shows a globe icon + your label.
+- **Bio**
+- The Team page automatically groups people by role and **wraps to multiple rows** - 4 people or 40, no layout editing needed.
 
 ### 9. Blog posts
 One entry per post. Click **+ Blog post** to add.
