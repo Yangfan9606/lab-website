@@ -11,13 +11,15 @@ nav:
 
 {% include section.html %}
 
-## Highlighted
+## {{ site.data.content.research.highlighted_heading }}
 
-{% include citation.html lookup="Open collaborative writing with Manubot" style="rich" %}
+{% for paper in site.data.content.research.highlighted %}
+{% include citation.html lookup=paper style="rich" %}
+{% endfor %}
 
 {% include section.html %}
 
-## All
+## {{ site.data.content.research.all_heading }}
 
 {% include search-box.html %}
 
