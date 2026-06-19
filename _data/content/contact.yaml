@@ -1,0 +1,15 @@
+# Contact page. Edited via admin -> Pages -> "Contact".
+# Templates read {{ site.data.content.contact.* }}
+intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+email: jane@smith.com
+phone_text: (555) 867-5309
+phone_link: "+1-555-867-5309"
+address_tooltip: Our location on Google Maps for easy navigation
+address_link: https://www.google.com/maps
+figure1_image: images/photo.jpg
+figure1_caption: Lorem ipsum
+figure2_image: images/photo.jpg
+figure2_caption: Lorem ipsum
+col1: Lorem ipsum dolor sit amet
+col2: consectetur adipiscing elit
+col3: sed do eiusmod tempor

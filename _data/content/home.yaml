@@ -1,0 +1,19 @@
+# Main page (home). Edited via admin -> Pages -> "Main page".
+# Templates read these as {{ site.data.content.home.* }}
+title: Lab Website Template
+intro: An easy-to-use, flexible website template for labs. Spend less time managing a website and citations, and more time running your lab.
+
+feature1_title: Our Research
+feature1_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+feature1_button: See our publications
+feature1_image: images/photo.jpg
+
+feature2_title: Our Projects
+feature2_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+feature2_button: Browse our projects
+feature2_image: images/photo.jpg
+
+feature3_title: Our Team
+feature3_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+feature3_button: Meet our team
+feature3_image: images/photo.jpg
