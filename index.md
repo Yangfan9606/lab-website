@@ -94,13 +94,20 @@
 
 {% include section.html %}
 
-{% comment %} Same photo wall as the Team page. Edited under Pages -> Team. {% endcomment %}
-{% capture content %}
+{% comment %} Same photo wall as the Team page (one row + More). Edited under Pages -> Team. {% endcomment %}
+{%
+  include photo-row.html
+  photos=site.data.content.team.figures
+  limit=site.data.content.team.photos_max
+  id="home"
+%}
 
-{% for photo in site.data.content.team.figures %}
-{% include figure.html image=photo %}
-{% endfor %}
-
-{% endcapture %}
-
-{% include grid.html style="square" content=content %}
+{% if site.data.content.team.figures.size > site.data.content.team.photos_max %}
+{%
+  include button.html
+  link="photos"
+  text="More photos"
+  icon="fa-solid fa-arrow-right"
+  flip=true
+%}
+{% endif %}
