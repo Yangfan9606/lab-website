@@ -91,3 +91,16 @@
   title=site.data.content.home.feature3_title
   text=text
 %}
+
+{% include section.html %}
+
+{% comment %} Same photo wall as the Team page. Edited under Pages -> Team. {% endcomment %}
+{% capture content %}
+
+{% for photo in site.data.content.team.figures %}
+{% include figure.html image=photo %}
+{% endfor %}
+
+{% endcapture %}
+
+{% include grid.html style="square" content=content %}

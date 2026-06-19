@@ -24,6 +24,7 @@ The home page.
 - **Heading above featured papers** (default "Highlighted")
 - **Featured papers** - a list; paste a paper title or DOI (must exist in your publications). Each shows as a large card.
 - **Heading above the full publication list** (default "All")
+- **Talks & videos** - a list of YouTube links (paste a normal watch?v=... or youtu.be/... URL + a title). They embed as players at the bottom of the page. Empty list hides the section.
 - The full publication list itself comes from your DOIs - see "Adding publications" at the bottom.
 
 ### 3. Projects page
@@ -33,7 +34,7 @@ The home page.
 ### 4. Team page
 - **Intro paragraph** (top)
 - **Mid-page band paragraph** (the text in the dark photo band)
-- **Bottom photos** - a list; add/remove as many as you like, they wrap into a grid automatically
+- **Bottom photos** (labelled in the file as the photo wall) - a list; add/remove as many as you like, they wrap into a grid automatically. This wall now shows at the **top of the Team page** and also on the **Main page** (same photos, edited here once).
 - The people grid comes from the **Members** section (below).
 
 ### 5. Blog page
