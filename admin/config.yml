@@ -161,6 +161,15 @@ collections:
           - { name: title,       label: 'Lab name', widget: string }
           - { name: subtitle,    label: 'Subtitle (shown under the name)', widget: string, required: false }
           - { name: description, label: 'Description (for search engines / social previews)', widget: text, required: false }
+          - { name: page_background, label: 'Whole-page background image (leave blank for plain look)', widget: image, required: false }
+          - name: page_panel_opacity
+            label: 'How much the background shows through'
+            widget: select
+            default: 0.85
+            options:
+              - { label: 'Subtle (image faint)', value: 0.92 }
+              - { label: 'Medium', value: 0.85 }
+              - { label: 'Strong (image prominent)', value: 0.72 }
           - name: links
             label: 'Social / contact links'
             widget: object
