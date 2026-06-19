@@ -1,4 +1,8 @@
-{% assign image = page.header | default: site.header %}
+{% assign image = page.header %}
+{% if page.url == "/" and site.data.content.home.banner and site.data.content.home.banner != "" %}
+  {% assign image = site.data.content.home.banner %}
+{% endif %}
+{% assign image = image | default: site.data.site.header_image | default: site.header %}
 {% assign dark = page.header-dark | is_nil: site.header-dark | is_nil: true %}
 
 {% assign svg = "images/logo.svg" | file_exists %}
