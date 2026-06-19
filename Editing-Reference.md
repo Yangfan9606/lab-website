@@ -24,7 +24,9 @@ The home page.
 - **Heading above featured papers** (default "Highlighted")
 - **Featured papers** - a list; paste a paper title or DOI (must exist in your publications). Each shows as a large card.
 - **Heading above the full publication list** (default "All")
-- **Talks & videos** - a list of YouTube links (paste a normal watch?v=... or youtu.be/... URL + a title). They embed as players at the bottom of the page. Empty list hides the section.
+- **Talks & videos** (shown right under Highlighted) - a list of YouTube links (paste a normal watch?v=... or youtu.be/... URL + a title). They embed side by side as players. Empty list hides the section.
+  - **How many videos to show** (`videos_max`, default 6); if you have more, a **More videos** button appears linking to a full `/videos/` page.
+  - **Video size** - Small / Medium / Large (or type any CSS width in the data file for a custom size).
 - The full publication list itself comes from your DOIs - see "Adding publications" at the bottom.
 
 ### 3. Projects page
@@ -34,7 +36,8 @@ The home page.
 ### 4. Team page
 - **Intro paragraph** (top)
 - **Mid-page band paragraph** (the text in the dark photo band)
-- **Bottom photos** (labelled in the file as the photo wall) - a list; add/remove as many as you like, they wrap into a grid automatically. This wall now shows at the **top of the Team page** and also on the **Main page** (same photos, edited here once).
+- **Photo wall** - a list; add/remove as many as you like (same photos, edited here once). Shows as **one row** at the **top of the Team page** and on the **Main page**. Hover a photo to zoom/highlight it; click to open it large (lightbox).
+  - **How many photos to show** (`photos_max`, default 6); if you have more, a **More photos** button appears linking to a full `/photos/` page.
 - The people grid comes from the **Members** section (below).
 
 ### 5. Blog page
