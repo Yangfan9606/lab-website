@@ -25,6 +25,18 @@
   width: 100%;
 }
 
+.life-card .card-image {
+  width: 100%;
+}
+
+.life-card .card-image img {
+  aspect-ratio: auto;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
 .card-text {
   display: inline-flex;
   justify-content: flex-start;

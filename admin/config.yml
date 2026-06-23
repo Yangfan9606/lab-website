@@ -331,9 +331,9 @@ collections:
     folder: _projects
     create: true                  # "+ Project" anytime
     slug: '{{fields.title | lower | replace(" ", "-")}}'
-    summary: '{{fields.title}}'
+    summary: '{{fields.order}} - {{fields.title}}'
     sort:
-      - { field: title, direction: ascending }
+      - { field: order, direction: ascending }
     fields:
       - { name: title, label: Title, widget: string }
       - { name: subtitle, label: Subtitle, widget: string, required: false }
@@ -345,6 +345,7 @@ collections:
         options:
           - { label: 'Featured (top row)', value: featured }
           - { label: 'More (smaller, below)', value: more }
+      - { name: order, label: 'Order (smaller number shows first, within its section)', widget: number, value_type: int, default: 50, min: 0 }
       - { name: image, label: Image, widget: image, required: false, default: images/photo.jpg }
       - { name: link, label: 'Link (where the card goes when clicked)', widget: string, required: false }
       - { name: description, label: Description, widget: text, required: false }
@@ -362,13 +363,14 @@ collections:
     folder: _life
     create: true                  # "+ Lab Life item" anytime
     slug: '{{fields.title | lower | replace(" ", "-")}}'
-    summary: '{{fields.title}}'
+    summary: '{{fields.order}} - {{fields.title}}'
     sort:
-      - { field: date, direction: descending }
+      - { field: order, direction: ascending }
     fields:
       - { name: title, label: Title, widget: string }
       - { name: image, label: 'Cover image', widget: image, required: false, default: images/photo.jpg }
       - { name: subtitle, label: 'Subtitle / category (optional, e.g. "Team-building")', widget: string, required: false }
+      - { name: order, label: 'Order (smaller number shows first)', widget: number, value_type: int, default: 50, min: 0 }
       - { name: date, label: Date, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, required: false }
       - { name: body, label: 'Write-up (rules / instructions / notes)', widget: markdown }
 
