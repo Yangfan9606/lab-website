@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+{% comment %}
+  Detail page for one "Lab Life" item (a team-building game, plant-care
+  guide, lab-chores note, etc.). Edited under admin -> "Lab Life".
+  Frontmatter: title, image (cover), date (optional); the body is markdown.
+{% endcomment %}
+
+{% include section.html background=page.image %}
+
+<h1 class="center">{{ page.title }}</h1>
+
+{% if page.date and page.date != "" %}
+  <p class="center">{{ page.date | date: "%B %-d, %Y" }}</p>
+{% endif %}
+
+{% include section.html %}
+
+{{ content }}
+
+{% include section.html %}
+
+<p class="center">
+  <a href="{{ '/life/' | relative_url }}">
+    {% include icon.html icon="fa-solid fa-arrow-left" %}
+    Back to Lab Life
+  </a>
+</p>
