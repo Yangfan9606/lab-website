@@ -1,8 +1,8 @@
 ---
 title: Test2
 image: images/photo.jpg
-subtitle: ''
-date: ''
+subtitle: asd
+date: 2026-06-23
 ---
 
 Test2
