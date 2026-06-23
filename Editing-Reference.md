@@ -108,13 +108,16 @@ The **Publications** section in the sidebar -> open **Publication list** -> the 
 
 ### Projects
 One entry per project card. Click **+ Project** to add, open one to edit or delete.
-- **Title**, **Subtitle**, **Section** (Featured = large top row / More = smaller below), **Image**, **Link**, **Description**, **GitHub repo** (optional, shows stars), **Tags**
+- **Title**, **Subtitle**, **Section** (Featured = large top row / More = smaller below), **Order**, **Image**, **Link**, **Description**, **GitHub repo** (optional, shows stars), **Tags**
+- **Order** - a number that fixes the position **within its section**: smaller shows first (1 before 2 before 3...). Default 50; give the ones you want pinned a low number. Cards with the same number keep their existing order.
 - The Projects page fills its Featured and More rows automatically.
 
 ### Lab Life
 Records of lab activities - team-building game rules, plant care, lab chores, anything. One entry per item. Click **+ Lab Life item** to add, open one to edit or delete.
-- **Title**, **Cover image**, **Subtitle / category** (optional, e.g. "Team-building"), **Date**, **Write-up** (the full rules / instructions / notes, in the body).
-- Each item shows as a **cover + title card** on the **Blog page** (below the search box) and opens its **own page** with the write-up. The newest 3 show on the Blog page (set by **Pages -> Blog page -> How many Lab Life cards to show**); the rest are on the full **/life/** page behind the **More** button.
+- **Title**, **Cover image**, **Subtitle / category** (optional, e.g. "Team-building"), **Order**, **Date**, **Write-up** (the full rules / instructions / notes, in the body).
+- **Order** - a number that fixes the position: smaller shows first. Default 50; pin the ones you want up front with a low number.
+- The cover image shows at its **natural shape** (your rectangular photo is not cropped to a square), so cards can vary in height.
+- Each item shows as a **cover + title card** on the **Blog page** (below the search box) and opens its **own page** with the write-up. The first 3 (by Order) show on the Blog page (count set by **Pages -> Blog page -> How many Lab Life cards to show**); the rest are on the full **/life/** page behind the **More** button.
 
 ### Blog posts
 One entry per post. Click **+ Blog post** to add.

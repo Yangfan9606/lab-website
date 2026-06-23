@@ -14,7 +14,7 @@ title: Lab Life
 
 {% include section.html %}
 
-{% assign items = site.life | sort: "date" | reverse %}
+{% assign items = site.life | sort: "order" %}
 {% for item in items %}
   {%
     include life-card.html

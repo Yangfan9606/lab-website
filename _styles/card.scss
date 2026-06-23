@@ -29,6 +29,22 @@
   // box-shadow: var(--shadow);
 }
 
+// Lab Life covers: show the WHOLE image at its natural proportions ("自适应").
+// The image area equals the image itself (scaled to the card width), so a
+// rectangular photo is never cropped or letter-boxed; cards vary in height.
+// To make Lab Life crop to uniform 3:2 cards instead, delete this block.
+.life-card .card-image {
+  width: 100%;
+}
+
+.life-card .card-image img {
+  aspect-ratio: auto;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
 .card-text {
   display: inline-flex;
   justify-content: flex-start;

@@ -20,7 +20,7 @@ nav:
   NOT filter them — search only affects the blog posts further down.
   Heading text + how many to show are set in _data/content/blog.yaml.
 {% endcomment %}
-{% assign life_items = site.life | sort: "date" | reverse %}
+{% assign life_items = site.life | sort: "order" %}
 {% if life_items.size > 0 %}
   {% assign lifemax = site.data.content.blog.life_max | default: 3 | plus: 0 %}
 
