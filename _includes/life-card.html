@@ -1,0 +1,42 @@
+{% comment %}
+  A Lab Life card: cover image + title (+ optional subtitle), linking to
+  the item's own page. Uses class "life-card" (NOT "card") on purpose so
+  the Blog page search box does not filter these — the search only targets
+  .card / .citation / .post-excerpt. The inner .card-image / .card-text /
+  .card-title classes are reused so the styling matches normal cards.
+  Params: image, title, subtitle (optional), link, style (optional).
+{% endcomment %}
+{{ " " }}
+<div class="life-card" data-style="{{ include.style }}">
+  <a
+    {% if include.link %}
+      href="{{ include.link | relative_url | uri_escape }}"
+    {% endif %}
+    aria-label="{{ include.title | default: "card link" | regex_strip }}"
+    class="card-image"
+  >
+    <img
+      src="{{ include.image | relative_url | uri_escape }}"
+      alt="{{ include.title | default: "card image" | regex_strip }}"
+      loading="lazy"
+      {% include fallback.html %}
+    >
+  </a>
+
+  <div class="card-text">
+    {% if include.title %}
+      <a
+        {% if include.link %}
+          href="{{ include.link | relative_url | uri_escape }}"
+        {% endif %}
+        class="card-title"
+      >
+        {{ include.title }}
+      </a>
+    {% endif %}
+
+    {% if include.subtitle %}
+      <span class="card-subtitle">{{ include.subtitle }}</span>
+    {% endif %}
+  </div>
+</div>
