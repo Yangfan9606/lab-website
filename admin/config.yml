@@ -115,6 +115,9 @@ collections:
         file: _data/content/blog.yaml
         fields:
           - { name: intro, label: Intro paragraph, widget: text }
+          - { name: life_heading, label: '"Lab Life" section heading (below the search box)', widget: string, default: 'Lab Life' }
+          - { name: life_max, label: 'How many Lab Life cards to show (rest go to a More page)', widget: number, value_type: int, default: 3, min: 1 }
+          - { name: life_intro, label: 'Lab Life intro (shown only on the full /life/ page; optional)', widget: text, required: false }
 
       - name: contact
         label: 'Contact page'
@@ -348,6 +351,26 @@ collections:
       - { name: repo, label: 'GitHub repo (owner/name, optional - shows stars)', widget: string, required: false }
       - { name: tags, label: Tags, widget: list, required: false }
       - { name: body, label: 'Notes (not shown on the card)', widget: markdown, required: false }
+
+  # ---------- Lab Life -> _life/*.md ----------
+  # Lab activity records (team-building, plant care, lab chores...). Each
+  # item is a card (cover + title) on the Blog page and opens its own page
+  # with the full write-up in the body.
+  - name: life
+    label: 'Lab Life'
+    label_singular: 'Lab Life item'
+    folder: _life
+    create: true                  # "+ Lab Life item" anytime
+    slug: '{{fields.title | lower | replace(" ", "-")}}'
+    summary: '{{fields.title}}'
+    sort:
+      - { field: date, direction: descending }
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: image, label: 'Cover image', widget: image, required: false, default: images/photo.jpg }
+      - { name: subtitle, label: 'Subtitle / category (optional, e.g. "Team-building")', widget: string, required: false }
+      - { name: date, label: Date, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, required: false }
+      - { name: body, label: 'Write-up (rules / instructions / notes)', widget: markdown }
 
   # ---------- Blog posts -> _posts/*.md ----------
   - name: blog-posts
