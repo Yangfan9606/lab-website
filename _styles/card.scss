@@ -1,7 +1,8 @@
 ---
 ---
 
-.card {
+.card,
+.life-card {
   display: inline-flex;
   justify-content: stretch;
   align-items: center;
@@ -16,7 +17,8 @@
   vertical-align: top;
 }
 
-.card[data-style="small"] {
+.card[data-style="small"],
+.life-card[data-style="small"] {
   width: 250px;
 }
 
