@@ -34,6 +34,11 @@ defaults:
       type: "posts"
     values:
       layout: post
+  # markdown files in /_life
+  - scope:
+      type: "life"
+    values:
+      layout: life
 
 collections:
   # generate page for each member
@@ -45,6 +50,10 @@ collections:
   # projects shown on the Projects page (no individual pages needed)
   projects:
     output: false
+  # "Lab Life" items (team-building, plant care, lab chores...); each
+  # gets its own detail page, shown as cards on the Blog page + /life/
+  life:
+    output: true
 
 # jekyll plugins
 plugins:

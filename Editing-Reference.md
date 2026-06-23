@@ -2,7 +2,7 @@
 
 What each section in the visual admin (`/admin`) lets you edit. Open `/admin`, pick a section in the left sidebar, change the fields, click **Save** -> the live site updates in ~1-3 minutes (hard-refresh with Ctrl/Cmd+Shift+R if you don't see it).
 
-The sidebar has these sections: **Pages** (click it, then pick one of the 6 pages on the right), **Publications**, **Auto-import (ORCID)**, **Site settings**, **Members**, **Projects**, and **Blog posts**.
+The sidebar has these sections: **Pages** (click it, then pick one of the 6 pages on the right), **Publications**, **Auto-import (ORCID)**, **Site settings**, **Members**, **Projects**, **Lab Life**, and **Blog posts**.
 
 ---
 
@@ -45,7 +45,12 @@ The home page.
 
 ### 5. Blog page
 - **Intro paragraph** (top of the blog page)
+- **"Lab Life" section heading** - the title of the activity gallery shown right below the search box (default "Lab Life").
+- **How many Lab Life cards to show** (`life_max`, default 3) - if you have more items, a **More** button links to the full `/life/` page.
+- **Lab Life intro** - optional text shown only at the top of the full `/life/` page.
+- The Lab Life cards themselves (cover + title) come from the **Lab Life** section (below). The search box does **not** filter these - it only filters the blog posts.
 - The list of posts comes from the **Blog posts** section (below).
+- The tag keywords shown under the search box are generated automatically from the **tags you give each blog post** - add or rename a tag on a post and it shows up here. There is no separate list to edit.
 
 ### 6. Contact page
 - **Intro paragraph** (top)
@@ -106,6 +111,11 @@ One entry per project card. Click **+ Project** to add, open one to edit or dele
 - **Title**, **Subtitle**, **Section** (Featured = large top row / More = smaller below), **Image**, **Link**, **Description**, **GitHub repo** (optional, shows stars), **Tags**
 - The Projects page fills its Featured and More rows automatically.
 
+### Lab Life
+Records of lab activities - team-building game rules, plant care, lab chores, anything. One entry per item. Click **+ Lab Life item** to add, open one to edit or delete.
+- **Title**, **Cover image**, **Subtitle / category** (optional, e.g. "Team-building"), **Date**, **Write-up** (the full rules / instructions / notes, in the body).
+- Each item shows as a **cover + title card** on the **Blog page** (below the search box) and opens its **own page** with the write-up. The newest 3 show on the Blog page (set by **Pages -> Blog page -> How many Lab Life cards to show**); the rest are on the full **/life/** page behind the **More** button.
+
 ### Blog posts
 One entry per post. Click **+ Blog post** to add.
 - **Title**, **Date**, **Author** (dropdown of Members), **Tags**, **Body**
@@ -118,6 +128,7 @@ One entry per post. Click **+ Blog post** to add.
 - **Members** and **Blog posts**: yes - unlimited. Use **+ Member** / **+ Blog post**. The team grid and blog list grow automatically.
 - **Publications**: yes - unlimited. Use the **Publications** section -> **+ Publication**.
 - **Projects**: yes - unlimited. Use **+ Project**.
+- **Lab Life**: yes - unlimited. Use the **Lab Life** section -> **+ Lab Life item**.
 - **Home page panels**: no - fixed at 3 by the layout. A 4th would require a layout change.
 
 **Adding publications**: use the **Publications** section in the admin -> **+ Publication**, then paste a DOI (e.g. `doi:10.1234/your.doi.here`) into **ID**. The template auto-fetches the title, authors, journal, and thumbnail on the next rebuild, and they appear on the Research page.
